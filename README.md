@@ -8,7 +8,11 @@ Bullet Hazard es un shooter multijugador local de dos jugadores influenciado por
 ### Controles
 
 Android.
-![Controles Android](https://drive.google.com/file/d/1BrAlB1VNdB6nGPXTTKjf95iv-V711Mw3/view?usp=sharing)
+![Controles Android](https://github.com/danni3231/BulletHazard/blob/master/Recursos/ControlAndroid.png)
 
 Pc.
-![Controles PC](https://drive.google.com/file/d/1uXbCIDr3qou_h_MtzX4XCfpsNl5dh655/view?usp=sharing)
+![Controles PC](https://github.com/danni3231/BulletHazard/blob/master/Recursos/ControlPc.png)
+
+### Behance
+
+https://www.behance.net/gallery/93512573/Bullet-Hazard-Game-concept
