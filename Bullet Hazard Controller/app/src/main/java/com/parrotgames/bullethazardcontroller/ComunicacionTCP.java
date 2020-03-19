@@ -1,4 +1,4 @@
-package comm;
+package com.parrotgames.bullethazardcontroller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,23 +7,26 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ComunicacionTCP extends Thread{
 
     private Socket socket;
     private BufferedReader reader;
     private BufferedWriter writer;
+    private String ip;
+
     private OnMessageListener observer;
+
+    public ComunicacionTCP(OnMessageListener observer){
+        this.observer = observer;
+    }
 
     public void run() {
         try {
-            ServerSocket server = new ServerSocket(5000);
-            System.out.println("Esperando...");
-            this.socket = server.accept();
-            System.out.println("Aceptado!");
-          //  mandarMensaje("aceptado");
+            this.socket = new Socket(this.ip,5000);
 
             //Reader
             InputStream is = socket.getInputStream();
@@ -45,8 +48,8 @@ public class ComunicacionTCP extends Thread{
     }
 
     //Solicitar conexion
-    public void esperarConexion(OnMessageListener observer){
-        this.observer=observer;
+    public void solicitarConexion(String ip){
+        this.ip = ip;
         this.start();
     }
 

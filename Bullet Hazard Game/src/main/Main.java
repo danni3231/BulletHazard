@@ -1,10 +1,10 @@
 package main;
 
 import comm.ComunicacionTCP;
-import comm.OnMessageObserver;
+import comm.OnMessageListener;
 import processing.core.PApplet;
 
-public class Main extends PApplet implements OnMessageObserver {
+public class Main extends PApplet implements OnMessageListener {
 
 
     public static void main(String[] args) {

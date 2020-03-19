@@ -1,5 +1,5 @@
 package comm;
 
-public interface OnMessageObserver {
+public interface OnMessageListener {
     void onMessage(String message);
 }
