@@ -14,7 +14,7 @@ public class Tanque {
     private int vel;
     private PImage img;
 
-    public Tanque(int posX, int posY, PImage img,PApplet app){
+    public Tanque(int posX,int posY,PImage img,PApplet app){
         this.balas= new ArrayList<Bala>();
         this.posX=posX;
         this.posY=posY;
