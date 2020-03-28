@@ -23,7 +23,7 @@ public class Logica {
         loadImages();
     }
 
-    public void draw(){
+    public void pintar(){
         jugadores[0].getTanque().pintar();
         jugadores[1].getTanque().pintar();
     }
