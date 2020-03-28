@@ -20,10 +20,15 @@ public class Logica {
     public Logica(PApplet app){
         this.app=app;
         this.jugadores= new Jugador[2];
-        loadImage();
+        loadImages();
     }
 
-    public void loadImage(){
+    public void draw(){
+        jugadores[0].getTanque().pintar();
+        jugadores[1].getTanque().pintar();
+    }
+
+    public void loadImages(){
         this.imgTanques=new PImage[4];
         this.imgTanquesPreview=new PImage[4];
 
@@ -33,7 +38,7 @@ public class Logica {
         imgBala= app.loadImage("bala.png");
     }
 
-    public void crearJugadores(String[] datos1, String[] datos2){
+    public void crearJugadores(String[] datos1, String[] datos2) throws NumberFormatException{
         jugadores[0]= new Jugador(app);
         jugadores[0].setNombre(datos1[0]);
         Tanque tanque1 = new Tanque(50,150,imgTanques[parseInt(datos1[1])],app);
@@ -41,7 +46,10 @@ public class Logica {
 
         jugadores[1]= new Jugador(app);
         jugadores[1].setNombre(datos2[0]);
-        Tanque tanque2 = new Tanque(50,150,imgTanques[parseInt(datos2[1])],app);
+        Tanque tanque2 = new Tanque(1000,150,imgTanques[parseInt(datos2[1])],app);
         jugadores[1].setTanque(tanque2);
+
+        System.out.println(jugadores[0].getNombre());
+        System.out.println(jugadores[1].getNombre());
     }
 }

@@ -22,11 +22,20 @@ public class Main extends PApplet implements OnMessageListener {
         comm = new ComunicacionTCP();
         comm.esperarConexion(this);
         logica = new Logica(this);
-        logica.loadImage();
+
+        String[] datos1= new String[2];
+        String[] datos2= new String[2];
+        datos1[0]="yolo";
+        datos2[0]="carlos";
+        datos1[1]="1";
+        datos2[1]="r";
+
+        logica.crearJugadores(datos1,datos2);
     }
 
     public void draw(){
-        //background(200);
+        background(200);
+        logica.draw();
     }
 
     public void onMessage(String message) {
