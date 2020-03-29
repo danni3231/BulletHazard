@@ -16,14 +16,16 @@ public class ComunicacionTCP extends Thread{
     private BufferedReader reader;
     private BufferedWriter writer;
     private OnMessageListener observer;
+    private boolean conectado;
 
     public void run() {
         try {
             ServerSocket server = new ServerSocket(5000);
             System.out.println("Esperando...");
+            this.conectado=false;
             this.socket = server.accept();
             System.out.println("Aceptado!");
-          //  mandarMensaje("aceptado");
+            this.conectado=true;
 
             //Reader
             InputStream is = socket.getInputStream();
@@ -76,5 +78,9 @@ public class ComunicacionTCP extends Thread{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean isConectado() {
+        return conectado;
     }
 }

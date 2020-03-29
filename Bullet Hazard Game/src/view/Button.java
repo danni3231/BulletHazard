@@ -105,6 +105,11 @@ public class Button {
                 app.mouseY > posY-(height/2) && app.mouseY < posY+(width/2);
     }
 
+    public String getText() {
+        return text;
+    }
 
-
+    public void setText(String text) {
+        this.text = text;
+    }
 }

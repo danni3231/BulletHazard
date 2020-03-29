@@ -37,7 +37,7 @@ public class Instrucciones {
         app.image(fondo,1200/2,700/2);
         app.fill(254,0,176);
         app.textFont(trade);
-        app.text("instrucciones",1200/2,85);
+        app.text("Instrucciones",1200/2,85);
         app.image(instruciones,1200/2,350);
         app.textFont(poppins);
         boton.draw();

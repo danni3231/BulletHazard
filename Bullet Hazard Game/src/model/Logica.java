@@ -3,6 +3,8 @@ package model;
 import processing.core.PApplet;
 import processing.core.PImage;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.time.Clock;
 
 import static java.lang.Integer.parseInt;
@@ -11,6 +13,7 @@ public class Logica {
 
     private PApplet app;
     private Jugador[] jugadores;
+    private InetAddress address;
 
     //imagenes//
     private PImage[] imgTanquesPreview;
@@ -36,6 +39,15 @@ public class Logica {
             imgTanques[i]=app.loadImage("/data/tanque"+i+".png");
         }
         imgBala= app.loadImage("bala.png");
+    }
+
+    public String obtenerIp(){
+        try {
+            address = InetAddress.getLocalHost();
+            return address.getHostAddress();
+        } catch (UnknownHostException e) {
+            return "No se obtuvo la ip";
+        }
     }
 
     public void crearJugadores(String[] datos1, String[] datos2) throws NumberFormatException{

@@ -4,10 +4,10 @@ import comm.ComunicacionTCP;
 import comm.OnMessageListener;
 import model.Logica;
 import processing.core.PApplet;
-import processing.core.PFont;
-import processing.core.PImage;
+import view.Conexion;
 import view.Inicio;
 import view.Instrucciones;
+
 
 public class Main extends PApplet implements OnMessageListener {
 
@@ -21,6 +21,7 @@ public class Main extends PApplet implements OnMessageListener {
     int pantallas;
     Inicio inicio;
     Instrucciones instrucciones;
+    Conexion conexion;
 
     public void settings() {
         size(1200, 700);
@@ -36,6 +37,7 @@ public class Main extends PApplet implements OnMessageListener {
         logica = new Logica(this);
         inicio = new Inicio(this);
         instrucciones = new Instrucciones(this);
+        conexion = new Conexion(this);
 
         String[] datos1 = new String[2];
         String[] datos2 = new String[2];
@@ -50,15 +52,23 @@ public class Main extends PApplet implements OnMessageListener {
     public void draw() {
         background(200);
         // logica.pintar();
-        System.out.println(pantallas);
+       // System.out.println(pantallas);
         switch (pantallas) {
             case 0:
                 inicio.pintar();
                 pantallas = inicio.cambiarPantalla();
-
                 break;
             case 1:
                 instrucciones.pintar();
+                break;
+            case 2:
+                conexion.setIp(logica.obtenerIp());
+                conexion.pintar();
+                conexion.setConectado(comm.isConectado());
+                break;
+            case 3:
+
+                break;
         }
 
     }
@@ -69,6 +79,9 @@ public class Main extends PApplet implements OnMessageListener {
                 break;
             case 1:
                 pantallas=instrucciones.cambiarPantalla();
+                break;
+            case 2:
+                pantallas=conexion.cambiarPantalla();
                 break;
         }
     }
