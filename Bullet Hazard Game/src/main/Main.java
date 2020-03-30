@@ -37,7 +37,7 @@ public class Main extends PApplet implements OnMessageListener {
         imageMode(CENTER);
         textAlign(CENTER);
 
-        pantallas=3;
+        pantallas=0;
         celOk=true;
         datos1 = new String[2];
         datos2 = new String[2];
@@ -108,6 +108,6 @@ public class Main extends PApplet implements OnMessageListener {
     }
 
     public void onMessage(String message) {
-
+        System.out.println(message);
     }
 }
