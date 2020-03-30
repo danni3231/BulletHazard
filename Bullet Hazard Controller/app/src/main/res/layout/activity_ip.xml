@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:text="Ingrese su IP"
-        android:textColor="#FFFFFF"
+        android:textColor="#FE00B0"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

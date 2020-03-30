@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ComunicacionTCP extends Thread{
 
+    private static ComunicacionTCP instance;
     private Socket socket;
     private BufferedReader reader;
     private BufferedWriter writer;
@@ -20,7 +21,17 @@ public class ComunicacionTCP extends Thread{
 
     private OnMessageListener observer;
 
-    public ComunicacionTCP(OnMessageListener observer){
+    private ComunicacionTCP(){ }
+
+    public static ComunicacionTCP getInstance() {
+        if(instance == null){
+            instance = new ComunicacionTCP();
+            return instance;
+        }
+        return instance;
+    }
+
+    public void setObserver(OnMessageListener observer){
         this.observer = observer;
     }
 

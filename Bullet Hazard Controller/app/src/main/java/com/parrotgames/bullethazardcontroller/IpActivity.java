@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class IpActivity extends AppCompatActivity {
 
@@ -21,9 +22,15 @@ public class IpActivity extends AppCompatActivity {
 
         btnEnviarIP.setOnClickListener(
                 (v)->{
-                    Intent activity = new Intent(IpActivity.this,SelecionarActivity.class);
-                    activity.putExtra("IP",textIP.getText().toString());
-                    startActivity(activity);
+                    if(textIP.getText().toString().equals("")){
+                        Toast.makeText(this,"Por favor escribe la IP",Toast.LENGTH_LONG).show();
+                    }else{
+
+                        Intent activity = new Intent(IpActivity.this,SelecionarActivity.class);
+                        activity.putExtra("IP",textIP.getText().toString());
+                        startActivity(activity);
+                    }
+
                 }
         );
     }
