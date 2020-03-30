@@ -25,13 +25,11 @@ public class Input {
     private int textG;
     private int textB;
 
-    public Input(int posX, int posY, int width, int height, int index, PApplet app){
+    public Input(int posX, int posY, int index, PApplet app){
         this.posX=posX;
         this.posY=posY;
-        this.width=width;
-        this.height=height;
         this.index=index;
-        this.text="prueba";
+        this.text="";
         this.app=app;
 
         this.colorMode=0;
@@ -74,9 +72,14 @@ public class Input {
 
     }
 
+    public void setSize( int width, int height){
+        this.width=width;
+        this.height=height;
+    }
+
     public void setFocus(){
-        focus= app.mouseX > posX && app.mouseX < posX + width &&
-                app.mouseY > posY && app.mouseY < posY + height;
+        focus= app.mouseX > posX-(width/2) && app.mouseX < posX+(width/2) &&
+                app.mouseY > posY-(height/2) && app.mouseY < posY+(width/2);
     }
 
     public void setColor(int color){
@@ -111,8 +114,7 @@ public class Input {
         }
 
         app.textSize(16);
-        app.textAlign(app.LEFT,app.CENTER);
-        app.text(text,posX+(width/10),this.posY+(height/2)-(height/15));
+        app.text(text,this.posX,this.posY+(height/8));
     }
 
     public void displayPassword() {
@@ -128,15 +130,13 @@ public class Input {
         }
 
         app.textSize(16);
-        app.textAlign(app.LEFT,app.CENTER);
-        app.text(codeSecure,posX+(width/10),posY+(height/2)-(height/15));
+        app.text(codeSecure,this.posX,this.posY+(height/8));
     }
 
     public void writeText(char key) {
         if (focus) {
             if (key!=8){
                 text += key;
-                System.out.println(key);
             }else{
                 int indice = text.length() - 1;
                 try{
