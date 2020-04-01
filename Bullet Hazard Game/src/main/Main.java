@@ -25,6 +25,7 @@ public class Main extends PApplet implements OnMessageListener {
     Conexion conexion;
     Seleccion seleccion;
     Escenario escenario;
+    Resultados resultados;
 
     public void settings() {
         size(1200, 700);
@@ -49,6 +50,7 @@ public class Main extends PApplet implements OnMessageListener {
         conexion = new Conexion(this);
         seleccion = new Seleccion(this);
         escenario = new Escenario(this);
+        resultados = new Resultados(this);
     }
 
     public void draw() {
@@ -87,6 +89,11 @@ public class Main extends PApplet implements OnMessageListener {
                 escenario.pintar();
                 logica.pintar();
                 logica.validarChoque();
+                pantallas=logica.validarGameOver();
+                break;
+            case 5:
+                resultados.setGanador(logica.ganador());
+                resultados.pintar();
                 break;
         }
 

@@ -86,6 +86,22 @@ public class Logica {
         jugadores[1].choque(jugadores[0].getTanque().getBalas());
     }
 
+    public int validarGameOver(){
+        if (jugadores[0].getVida()==0 || jugadores[1].getVida()==0){
+            return 5;
+        }
+        return 4;
+    }
+
+    public String ganador(){
+        if(jugadores[0].getVida()>0){
+            return jugadores[0].getNombre();
+        }else if (jugadores[1].getVida()>0){
+            return jugadores[1].getNombre();
+        }
+        return null;
+    }
+
     public Jugador[] getJugadores() {
         return jugadores;
     }

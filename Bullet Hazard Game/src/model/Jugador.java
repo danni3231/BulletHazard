@@ -13,7 +13,7 @@ public class Jugador {
 
     public Jugador(PApplet app){
         this.app=app;
-        this.vida=3;
+        this.vida=4;
     }
 
     public void choque(ArrayList<Bala> bala){
@@ -51,7 +51,4 @@ public class Jugador {
         return vida;
     }
 
-    public void setVida(int vida) {
-        this.vida = vida;
-    }
 }
