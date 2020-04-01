@@ -86,6 +86,7 @@ public class Main extends PApplet implements OnMessageListener {
                 escenario.setJugadores(logica.getJugadores());
                 escenario.pintar();
                 logica.pintar();
+                logica.validarChoque();
                 break;
         }
 
@@ -116,7 +117,7 @@ public class Main extends PApplet implements OnMessageListener {
                 }
                 break;
             case 4:
-                logica.moverjugador1(key);
+                logica.moverjugador1(keyCode);
                 break;
         }
 

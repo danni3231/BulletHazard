@@ -35,10 +35,10 @@ public class Tanque {
     }
 
     public void mover(String dir){
-        if(dir.equals("UP")){
+        if(dir.equals("UP") && posY>190){
             posY-=vel;
         }
-        if(dir.equals("DOWN")){
+        if(dir.equals("DOWN") && posY<625){
             posY+=vel;
         }
         if(dir.equals("SHOOT")){
@@ -46,10 +46,28 @@ public class Tanque {
         }
     }
     public void disparar(){
-        balas.add(new Bala(posX,posY, imgBala,app));
+        if (index==1){
+            balas.add(new Bala(posX+50,posY, imgBala,app));
+        }
+
+        if (index==2){
+            balas.add(new Bala(posX-50,posY, imgBala,app));
+        }
     }
 
     public void setImgBala(PImage imgBala) {
         this.imgBala = imgBala;
+    }
+
+    public ArrayList<Bala> getBalas() {
+        return balas;
+    }
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public int getPosY() {
+        return posY;
     }
 }

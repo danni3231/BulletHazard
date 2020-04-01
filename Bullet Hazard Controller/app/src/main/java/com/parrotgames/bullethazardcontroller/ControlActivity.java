@@ -52,7 +52,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessageListe
                     while(true){
                         while(pressUp){}
                         try {
-                            Thread.sleep(25);
+                            Thread.sleep(40);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -81,7 +81,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessageListe
                     while(true){
                         while(pressDown){}
                         try {
-                            Thread.sleep(25);
+                            Thread.sleep(40);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
