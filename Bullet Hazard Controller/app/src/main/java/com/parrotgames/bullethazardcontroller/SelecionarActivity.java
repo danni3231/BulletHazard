@@ -47,7 +47,7 @@ public class SelecionarActivity extends AppCompatActivity implements OnMessageLi
                     btnPreview1.setBackground(btn1);
                     btnPreview2.setBackground(btn2);
                     btnPreview3.setBackground(btn3);
-                    indexTanque="0";
+                    indexTanque="4";
                 }
         );
 
@@ -61,7 +61,7 @@ public class SelecionarActivity extends AppCompatActivity implements OnMessageLi
                     btnPreview1.setBackground(btn1);
                     btnPreview2.setBackground(btn2);
                     btnPreview3.setBackground(btn3);
-                    indexTanque="1";
+                    indexTanque="5";
                 }
         );
 
@@ -75,7 +75,7 @@ public class SelecionarActivity extends AppCompatActivity implements OnMessageLi
                     btnPreview1.setBackground(btn1);
                     btnPreview2.setBackground(btn2);
                     btnPreview3.setBackground(btn3);
-                    indexTanque="2";
+                    indexTanque="6";
                 }
         );
 
@@ -89,19 +89,21 @@ public class SelecionarActivity extends AppCompatActivity implements OnMessageLi
                     btnPreview1.setBackground(btn1);
                     btnPreview2.setBackground(btn2);
                     btnPreview3.setBackground(btn3);
-                    indexTanque="3";
+                    indexTanque="7";
                 }
         );
 
         btnSeleccionar.setOnClickListener(
                 (view)->{
-                    if(textNombre.getText().toString().equals("")){
-                        Toast.makeText(this,"Por favor escribe tu nombre \n y selecciona un tanque",Toast.LENGTH_LONG).show();
-                    }else{
-
-                        Intent activity = new Intent(SelecionarActivity.this,MainActivity.class);
-                        comm.mandarMensaje("Datos,"+textNombre.getText().toString()+","+indexTanque);
-                        startActivity(activity);
+                    if(!btnSeleccionar.getText().toString().equals("Listo!")){
+                        if(textNombre.getText().toString().equals("")){
+                            Toast.makeText(this,"Por favor escribe tu nombre \n y selecciona un tanque",Toast.LENGTH_LONG).show();
+                        }else{
+                            comm.mandarMensaje("Datos,"+textNombre.getText().toString()+","+indexTanque);
+                            btnSeleccionar.setText("Listo!");
+                            Intent activity = new Intent(SelecionarActivity.this,ControlActivity.class);
+                            startActivity(activity);
+                        }
                     }
                 }
         );

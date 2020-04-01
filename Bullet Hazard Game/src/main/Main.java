@@ -4,10 +4,7 @@ import comm.ComunicacionTCP;
 import comm.OnMessageListener;
 import model.Logica;
 import processing.core.PApplet;
-import view.Conexion;
-import view.Inicio;
-import view.Instrucciones;
-import view.Seleccion;
+import view.*;
 
 
 public class Main extends PApplet implements OnMessageListener {
@@ -27,6 +24,7 @@ public class Main extends PApplet implements OnMessageListener {
     Instrucciones instrucciones;
     Conexion conexion;
     Seleccion seleccion;
+    Escenario escenario;
 
     public void settings() {
         size(1200, 700);
@@ -38,7 +36,7 @@ public class Main extends PApplet implements OnMessageListener {
         textAlign(CENTER);
 
         pantallas=0;
-        celOk=true;
+        celOk=false;
         datos1 = new String[2];
         datos2 = new String[2];
 
@@ -50,6 +48,7 @@ public class Main extends PApplet implements OnMessageListener {
         instrucciones = new Instrucciones(this);
         conexion = new Conexion(this);
         seleccion = new Seleccion(this);
+        escenario = new Escenario(this);
     }
 
     public void draw() {
@@ -71,13 +70,21 @@ public class Main extends PApplet implements OnMessageListener {
             case 3:
                 seleccion.pintar();
                 if(seleccion.isListo() && celOk){
+
                     datos1 = seleccion.setDatos();
-                    logica.crearJugadores(datos1, datos2);
+                    try{
+                        logica.crearJugadores(datos1, datos2);
+                    } catch (NumberFormatException e) {
+                        printArray(datos1);
+                        printArray(datos2);
+                    }
                     pantallas=seleccion.cambiarPantalla();
                 }
 
                 break;
             case 4:
+                escenario.setJugadores(logica.getJugadores());
+                escenario.pintar();
                 logica.pintar();
                 break;
         }
@@ -102,12 +109,32 @@ public class Main extends PApplet implements OnMessageListener {
     }
 
     public void keyPressed(){
-        if(pantallas==3 && !seleccion.isListo()){
-            seleccion.getInput().writeText(key);
+        switch (pantallas) {
+            case 3:
+                if (!seleccion.isListo()) {
+                    seleccion.getInput().writeText(key);
+                }
+                break;
+            case 4:
+                logica.moverjugador1(key);
+                break;
         }
+
     }
 
     public void onMessage(String message) {
         System.out.println(message);
+        if(message.startsWith("Datos")){
+            String[] splitText =message.split(",");
+            datos2[0]=splitText[1];
+            datos2[1]=splitText[2];
+            celOk=true;
+            printArray(splitText);
+        }
+        if(message.startsWith("Game")){
+            String[] splitText =message.split(",");
+            logica.moverJugador2(splitText[1]);
+        }
+
     }
 }

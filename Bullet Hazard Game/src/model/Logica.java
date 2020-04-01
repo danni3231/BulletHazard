@@ -5,7 +5,6 @@ import processing.core.PImage;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.time.Clock;
 
 import static java.lang.Integer.parseInt;
 
@@ -16,7 +15,6 @@ public class Logica {
     private InetAddress address;
 
     //imagenes//
-    private PImage[] imgTanquesPreview;
     private PImage[] imgTanques;
     private PImage imgBala;
 
@@ -32,8 +30,7 @@ public class Logica {
     }
 
     public void loadImages(){
-        this.imgTanques=new PImage[4];
-        this.imgTanquesPreview=new PImage[4];
+        this.imgTanques=new PImage[8];
 
         for(int i=0; i < imgTanques.length;i++){
             imgTanques[i]=app.loadImage("/data/tanque"+i+".png");
@@ -50,18 +47,40 @@ public class Logica {
         }
     }
 
+    public void moverjugador1(char key){
+        if(key == 38){
+            jugadores[0].getTanque().mover("UP");
+        }
+        if(key == 40){
+            jugadores[0].getTanque().mover("DOWN");
+        }
+        if(key == 32){
+            jugadores[0].getTanque().mover("SHOOT");
+        }
+    }
+
+    public void moverJugador2(String dir){
+        jugadores[1].getTanque().mover(dir);
+    }
+
     public void crearJugadores(String[] datos1, String[] datos2) throws NumberFormatException{
         jugadores[0]= new Jugador(app);
         jugadores[0].setNombre(datos1[0]);
-        Tanque tanque1 = new Tanque(50,150,imgTanques[parseInt(datos1[1])],app);
+        Tanque tanque1 = new Tanque(50,150,1,imgTanques[parseInt(datos1[1])],app);
         jugadores[0].setTanque(tanque1);
+        jugadores[0].getTanque().setImgBala(imgBala);
 
         jugadores[1]= new Jugador(app);
         jugadores[1].setNombre(datos2[0]);
-        Tanque tanque2 = new Tanque(1000,150,imgTanques[parseInt(datos2[1])],app);
+        Tanque tanque2 = new Tanque(1000,150,2,imgTanques[parseInt(datos2[1])],app);
         jugadores[1].setTanque(tanque2);
+        jugadores[1].getTanque().setImgBala(imgBala);
 
         System.out.println(jugadores[0].getNombre());
         System.out.println(jugadores[1].getNombre());
+    }
+
+    public Jugador[] getJugadores() {
+        return jugadores;
     }
 }

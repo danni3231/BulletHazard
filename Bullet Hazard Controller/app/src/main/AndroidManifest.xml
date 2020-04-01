@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".ResumenActivity"></activity>
+        <activity android:name=".ControlActivity" />
         <activity android:name=".SelecionarActivity" />
         <activity android:name=".IpActivity" />
         <activity android:name=".MainActivity">

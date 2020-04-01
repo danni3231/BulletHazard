@@ -30,7 +30,6 @@ public class IpActivity extends AppCompatActivity {
                         activity.putExtra("IP",textIP.getText().toString());
                         startActivity(activity);
                     }
-
                 }
         );
     }
