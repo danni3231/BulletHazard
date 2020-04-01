@@ -18,7 +18,7 @@ public class Conexion {
     public Conexion(PApplet app){
         this.app=app;
         this.conectado=false;
-        this.boton= new Button(1200/2,620,"Esperando",app);
+        this.boton= new Button(1200/2,550,"Esperando",app);
         boton.setSize(200,40);
         boton.setColor(254,0,176);
         boton.setTextColor(255);
@@ -33,19 +33,23 @@ public class Conexion {
 
     public void loadFonts(){
         trade = app.createFont("/data/TradeWinds-Regular.ttf",48);
-        poppins = app.createFont("/data/Poppins-Regular.ttf",18);
+        poppins = app.createFont("/data/Poppins-Regular.ttf",40);
     }
 
     public void pintar(){
         app.image(fondo,1200/2,700/2);
         app.fill(254,0,176);
         app.textFont(trade);
-        app.text("Conexion",1200/2,85);
-        app.image(cuadro,1200/2,350);
+        app.text("Conexion",1200/2,160);
         app.textFont(poppins);
+        app.textSize(20);
         app.fill(255);
         app.text("Para poder usar tu celular como control\n "+
-                "por favor conectate con tu IP: "+ip,1200/2,350);
+                "por favor conectate con tu IP:",1200/2,300);
+        app.textSize(35);
+        app.fill(12,245,116);
+        app.text(ip,1200/2,400);
+        app.textSize(18);
         boton.draw();
         if(!conectado){
             if(boton.getText().equals("Esperando...")){
