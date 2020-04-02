@@ -55,7 +55,6 @@ public class Main extends PApplet implements OnMessageListener {
 
     public void draw() {
         background(200);
-       // System.out.println(pantallas);
         switch (pantallas) {
             case 0:
                 inicio.pintar();
@@ -73,6 +72,7 @@ public class Main extends PApplet implements OnMessageListener {
                 seleccion.pintar();
                 if(seleccion.isListo() && celOk){
 
+
                     datos1 = seleccion.setDatos();
                     try{
                         logica.crearJugadores(datos1, datos2);
@@ -85,6 +85,8 @@ public class Main extends PApplet implements OnMessageListener {
 
                 break;
             case 4:
+
+
                 escenario.setJugadores(logica.getJugadores());
                 escenario.pintar();
                 logica.pintar();
@@ -93,6 +95,7 @@ public class Main extends PApplet implements OnMessageListener {
                 break;
             case 5:
                 resultados.setGanador(logica.ganador());
+                comm.mandarMensaje("GameOver"+","+logica.ganador());
                 resultados.pintar();
                 break;
         }
@@ -139,7 +142,7 @@ public class Main extends PApplet implements OnMessageListener {
             celOk=true;
             printArray(splitText);
         }
-        if(message.startsWith("Game")){
+        if(message.startsWith("Game") && pantallas==4){
             String[] splitText =message.split(",");
             logica.moverJugador2(splitText[1]);
         }

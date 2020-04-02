@@ -8,10 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class IpActivity extends AppCompatActivity {
+public class IpActivity extends AppCompatActivity{
 
     private Button btnEnviarIP;
     private EditText textIP;
+    private boolean pcConectado;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +26,12 @@ public class IpActivity extends AppCompatActivity {
                     if(textIP.getText().toString().equals("")){
                         Toast.makeText(this,"Por favor escribe la IP",Toast.LENGTH_LONG).show();
                     }else{
-
                         Intent activity = new Intent(IpActivity.this,SelecionarActivity.class);
                         activity.putExtra("IP",textIP.getText().toString());
                         startActivity(activity);
                     }
                 }
         );
+
     }
 }

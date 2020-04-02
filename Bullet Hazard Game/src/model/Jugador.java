@@ -19,7 +19,7 @@ public class Jugador {
     public void choque(ArrayList<Bala> bala){
         for(int i=0; i<bala.size();i++){
             int d= (int) app.dist(tanque.getPosX(),tanque.getPosY(),bala.get(i).getPosX(),bala.get(i).getPosY());
-            if(d<20){
+            if(d<50){
                 bala.remove(i);
                 restarVida();
                 System.out.println(vida);

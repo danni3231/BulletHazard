@@ -40,7 +40,7 @@ public class Conexion {
         app.image(fondo,1200/2,700/2);
         app.fill(254,0,176);
         app.textFont(trade);
-        app.text("Conexion",1200/2,160);
+        app.text("Conexión",1200/2,160);
         app.textFont(poppins);
         app.textSize(20);
         app.fill(255);

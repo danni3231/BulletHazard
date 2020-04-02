@@ -73,7 +73,7 @@ public class Logica {
 
         jugadores[1]= new Jugador(app);
         jugadores[1].setNombre(datos2[0]);
-        Tanque tanque2 = new Tanque(1075,300,2,imgTanques[parseInt(datos2[1])],app);
+        Tanque tanque2 = new Tanque(1075,600,2,imgTanques[parseInt(datos2[1])],app);
         jugadores[1].setTanque(tanque2);
         jugadores[1].getTanque().setImgBala(imgBala);
 

@@ -9,8 +9,6 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class ComunicacionTCP extends Thread{
 
     private static ComunicacionTCP instance;

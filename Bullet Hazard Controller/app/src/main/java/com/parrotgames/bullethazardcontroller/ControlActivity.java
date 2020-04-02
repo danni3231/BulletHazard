@@ -8,6 +8,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class ControlActivity extends AppCompatActivity implements OnMessageListener {
 
@@ -28,6 +29,7 @@ public class ControlActivity extends AppCompatActivity implements OnMessageListe
         pressDown=true;
 
         comm = ComunicacionTCP.getInstance();
+        comm.setObserver(this);
         btnUp=findViewById(R.id.btnUp);
         btnDown=findViewById(R.id.btnDown);
         btnShoot=findViewById(R.id.btnShoot);
@@ -99,9 +101,15 @@ public class ControlActivity extends AppCompatActivity implements OnMessageListe
 
     @Override
     public void onMessage(String message) {
-        if(message.equals("Game over")){
-            Intent activity = new Intent(ControlActivity.this,ResumenActivity.class);
-            startActivity(activity);
+        if(message.startsWith("GameOver")){
+            String datos[]=message.split(",");
+            runOnUiThread(
+                    ()->{
+                        Intent activity = new Intent(ControlActivity.this,ResumenActivity.class);
+                        activity.putExtra("NAME",datos[1]);
+                        startActivity(activity);
+                    }
+            );
         }
     }
 }
