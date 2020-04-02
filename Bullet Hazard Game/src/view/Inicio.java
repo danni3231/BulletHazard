@@ -15,8 +15,8 @@ public class Inicio {
     }
 
     public void loadImages(){
-        fondo= app.loadImage("/data/fondo.png");
-        logo= app.loadImage("/data/logo.png");
+        fondo= app.loadImage("./data/fondo.png");
+        logo= app.loadImage("./data/logo.png");
     }
 
     public void pintar(){

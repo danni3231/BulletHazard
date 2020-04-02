@@ -26,14 +26,14 @@ public class Instrucciones {
     }
 
     public void loadImages(){
-        fondo= app.loadImage("/data/fondo.png");
-        instrucionesPC = app.loadImage("/data/instrucciones pc.png");
-        instrucionesCel = app.loadImage("/data/instrucciones cel.png");
+        fondo= app.loadImage("./data/fondo.png");
+        instrucionesPC = app.loadImage("./data/instrucciones pc.png");
+        instrucionesCel = app.loadImage("./data/instrucciones cel.png");
     }
 
     public void loadFonts(){
-        trade = app.createFont("/data/TradeWinds-Regular.ttf",48);
-        poppins = app.createFont("/data/Poppins-Regular.ttf",24);
+        trade = app.createFont("./data/TradeWinds-Regular.ttf",48);
+        poppins = app.createFont("./data/Poppins-Regular.ttf",24);
     }
 
     public void pintar(){

@@ -24,14 +24,14 @@ public class Escenario {
     public void loadImages(){
         corazones = new PImage[2];
 
-        fondo= app.loadImage("/data/fondo.png");
+        fondo= app.loadImage("./data/fondo.png");
         for(int i=0; i<corazones.length;i++){
-            corazones[i]= app.loadImage("/data/corazon"+i+".png");
+            corazones[i]= app.loadImage("./data/corazon"+i+".png");
         }
     }
 
     public void loadFonts(){
-        trade = app.createFont("/data/TradeWinds-Regular.ttf",36);
+        trade = app.createFont("./data/TradeWinds-Regular.ttf",36);
     }
 
     public void pintar(){

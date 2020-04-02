@@ -27,13 +27,13 @@ public class Conexion {
     }
 
     public void loadImages(){
-        fondo= app.loadImage("/data/fondo.png");
-        cuadro = app.loadImage("/data/cuadro.png");
+        fondo= app.loadImage("./data/fondo.png");
+        cuadro = app.loadImage("./data/cuadro.png");
     }
 
     public void loadFonts(){
-        trade = app.createFont("/data/TradeWinds-Regular.ttf",48);
-        poppins = app.createFont("/data/Poppins-Regular.ttf",40);
+        trade = app.createFont("./data/TradeWinds-Regular.ttf",48);
+        poppins = app.createFont("./data/Poppins-Regular.ttf",40);
     }
 
     public void pintar(){

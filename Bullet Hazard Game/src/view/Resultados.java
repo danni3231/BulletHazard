@@ -19,11 +19,11 @@ public class Resultados {
     }
 
     public void loadImages(){
-        fondo= app.loadImage("/data/fondo.png");
+        fondo= app.loadImage("./data/fondo.png");
     }
 
     public void loadFonts(){
-        trade = app.createFont("/data/TradeWinds-Regular.ttf",55);
+        trade = app.createFont("./data/TradeWinds-Regular.ttf",55);
     }
 
     public void pintar(){

@@ -36,15 +36,15 @@ public class Seleccion {
     public void loadImages(){
         preview = new PImage[4];
 
-        fondo= app.loadImage("/data/fondo.png");
+        fondo= app.loadImage("./data/fondo.png");
         for(int i=0; i<preview.length;i++){
-            preview[i] = app.loadImage("/data/preview"+i+".png");
+            preview[i] = app.loadImage("./data/preview"+i+".png");
         }
     }
 
     public void loadFonts(){
-        trade = app.createFont("/data/TradeWinds-Regular.ttf",48);
-        poppins = app.createFont("/data/Poppins-Regular.ttf",18);
+        trade = app.createFont("./data/TradeWinds-Regular.ttf",48);
+        poppins = app.createFont("./data/Poppins-Regular.ttf",18);
     }
 
     public void pintar(){
